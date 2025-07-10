@@ -34,8 +34,13 @@ export default function Hero() {
             FullStack Developer
           </motion.h2>
           <motion.p className="hero-description" variants={fadeInUp}>
-            Started as backend developer, but now I've been crafting beautiful
-            digital experiences...
+            Developer with 4+ years of experience in front-end and back-end
+            development, working with Python, TypeScript, Django, Angular, and
+            React. My primary interest lies in back-end development. I have
+            experience in the education sector and currently work in the IoT
+            industry. I am always striving to stay up to date and enhance my
+            technical skills, particularly in Python. Self-taught and driven by
+            challenges, I enjoy stepping out of my comfort zone.
           </motion.p>
 
           <motion.div className="cta-buttons" variants={staggerContainer}>
@@ -95,14 +100,18 @@ export default function Hero() {
     origin: "🌍 Somewhere between a coffee shop and a terminal",
     role: "Fullstack Web Warlock",
     stack: {
-      languages: ["Python", "Javascript", "Typescript", "SQL"],
-      frameworks: ["React", "Django", "TailwindCSS", "FastAPI"],
+      languages: ["Python", "Javascript", "Typescript", "SQL"]
+      frameworks and tools: [
+        "React", "Django", "TailwindCSS", 
+        "FastAPI", "Flask", "Angular", 
+        "Git", "MySQL", "NoSQL"
+      ],
     },
     traits: [
-      "pixel-perfectionist",
-      "API whisperer",
+      "self-taught",
+      "tech enthusiast",
       "dark mode advocate",
-      "terminal aesthetic enthusiast",
+      "",
     ],
     missionStatement:
       "Turning ideas into interfaces and bugs into feature",
