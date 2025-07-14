@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import Projects from "./components/Projects";
 import emailjs from "@emailjs/browser";
 import { EMAILJS_PUBLIC_KEY } from "./utils/configs";
