@@ -26,6 +26,10 @@ body {
   width: 100%;
 }
 
+li {
+  list-style-type: none;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 10px;

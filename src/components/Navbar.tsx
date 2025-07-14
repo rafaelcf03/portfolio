@@ -1,8 +1,19 @@
 import "../styles/navbar.css";
 import { motion } from "framer-motion";
-import { staggerContainer, fadeInUp } from "../utils/configs";
+import { useEffect, useState } from "react";
+import useMedia from "../hooks/useMedia";
+import NavbarOptions from "./Navbar/NavbarOptions";
 
 export default function Navbar() {
+  const [mobileMenu, setMobileMenu] = useState<boolean>(false);
+
+  const isMobile = useMedia("(max-width: 40rem)");
+  console.log(isMobile);
+
+  useEffect(() => {
+    setMobileMenu(false);
+  }, []);
+
   return (
     <motion.nav
       className="navbar"
@@ -18,34 +29,21 @@ export default function Navbar() {
         🐺 | RC
       </motion.div>
 
-      <motion.ul
-        className="nav-links"
-        variants={staggerContainer}
-        initial="initial"
-        animate="animate"
-      >
-        <motion.li
-          variants={fadeInUp}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <a href="#home">Home</a>
-        </motion.li>
-        <motion.li
-          variants={fadeInUp}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <a href="#projects">Projects</a>
-        </motion.li>
-        <motion.li
-          variants={fadeInUp}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <a href="#contact">Contact</a>
-        </motion.li>
-      </motion.ul>
+      {isMobile ? (
+        <>
+          <button
+            aria-label="Menu"
+            onClick={() => setMobileMenu(!mobileMenu)}
+            className={`mobileBtn ${mobileMenu && "mobileBtnActive"}`}
+          ></button>
+
+          <nav className={`navMobile ${mobileMenu && "navMobileActive"}`}>
+            <NavbarOptions isMobile={isMobile} />
+          </nav>
+        </>
+      ) : (
+        <NavbarOptions />
+      )}
     </motion.nav>
   );
 }
