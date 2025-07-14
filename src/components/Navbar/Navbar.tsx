@@ -1,4 +1,4 @@
-import "../styles/navbar.css";
+import "../../styles/navbar.css";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import useMedia from "../../hooks/useMedia";
