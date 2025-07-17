@@ -1,6 +1,6 @@
 import "../../styles/navbar.css";
 import { motion } from "framer-motion";
-import { useEffect, useState, type MouseEventHandler } from "react";
+import { useEffect, useState } from "react";
 import useMedia from "../../hooks/useMedia";
 import NavbarOptions from "./NavbarOptions";
 import { fadeInUp } from "../../utils/configs";
