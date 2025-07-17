@@ -7,6 +7,7 @@ import {
 } from "../utils/configs";
 import emailjs from "@emailjs/browser";
 import { useState, type ChangeEvent, type FormEvent } from "react";
+import { useTranslation } from "react-i18next";
 
 type FormType = {
   name: string;
@@ -28,6 +29,8 @@ const formDefaultValues = {
 };
 
 export default function Contact() {
+  const { t } = useTranslation("portfolioApp");
+
   const [formData, setFormData] = useState<FormType>(formDefaultValues);
 
   const [formStatus, setFormStatus] = useState<FormStatusType>({
@@ -101,7 +104,7 @@ export default function Contact() {
         animate="animate"
         viewport={{ once: true }}
       >
-        Get in Touch
+        {t("GET_IN_TOUCH")}
       </motion.h2>
 
       <motion.div className="contact-content" variants={fadeInUp}>
@@ -109,7 +112,7 @@ export default function Contact() {
           <motion.input
             type="text"
             name="name"
-            placeholder="Your name..."
+            placeholder={t("YOUR_NAME")}
             required
             whileFocus={{ scale: 1.02 }}
             onChange={handleInputChange}
@@ -117,14 +120,14 @@ export default function Contact() {
           <motion.input
             type="email"
             name="email"
-            placeholder="Your email..."
+            placeholder={t("YOUR_EMAIL")}
             required
             whileFocus={{ scale: 1.02 }}
             onChange={handleInputChange}
           />
           <motion.textarea
             name="message"
-            placeholder="Your message..."
+            placeholder={t("YOUR_MESSAGE")}
             required
             whileFocus={{ scale: 1.02 }}
             onChange={handleInputChange}
@@ -137,7 +140,7 @@ export default function Contact() {
             whileTap={{ scale: 0.95 }}
             disabled={formStatus.submitting}
           >
-            {formStatus.submitting ? "Sending..." : "Send Message"}
+            {formStatus.submitting ? t("SENDING") : t("SEND_MESSAGE")}
           </motion.button>
 
           {formStatus.message && (

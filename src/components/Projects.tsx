@@ -1,8 +1,11 @@
 import "../styles/projects-section.css";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "../utils/configs";
+import { useTranslation } from "react-i18next";
 
 export default function Projects() {
+  const { t } = useTranslation("portfolioApp");
+
   return (
     <motion.section
       id="projects"
@@ -18,7 +21,7 @@ export default function Projects() {
         whileInView="animate"
         viewport={{ once: true }}
       >
-        My Projects
+        {t("MY_PROJECTS")}
       </motion.h2>
 
       <motion.div
@@ -38,12 +41,8 @@ export default function Projects() {
             style={{ backgroundImage: "url('/projects/mtg-land-count.png')" }}
             whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
           />
-          <h3>MTG Land Calculator</h3>
-          <p>
-            One of my first projects built in React and Vite. A simple form that
-            returns how many lands is recommended for your deck, applying an
-            algorithm developed by Frank Karsten.
-          </p>
+          <h3>{t("LAND_CALCULATOR")}</h3>
+          <p>{t("LAND_CALCULATOR_DESC")}</p>
           <div className="project-tech">
             <span>React</span>
             <span>Zod</span>
@@ -61,11 +60,8 @@ export default function Projects() {
             style={{ backgroundImage: "url('/projects/lumel.png')" }}
             whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
           />
-          <h3>Lumel Landing Page</h3>
-          <p>
-            A simple page for an apiary, built with React and TailwindCSS. My
-            goal is to upgrade this page to be an ecommerce in the future.
-          </p>
+          <h3>{t("LUMEL")}</h3>
+          <p>{t("LUMEL_DESC")}</p>
           <div className="project-tech">
             <span>React</span>
             <span>TailwindCSS</span>
@@ -82,11 +78,8 @@ export default function Projects() {
             style={{ backgroundImage: "url('/projects/building.png')" }}
             whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
           />
-          <h3>Eonix Building</h3>
-          <p>
-            A modern SaaS platform built with Fuse React template, featuring IoT
-            services.
-          </p>
+          <h3>{t("EONIX")}</h3>
+          <p>{t("EONIX_DESC")}</p>
           <div className="project-tech">
             <span>React</span>
             <span>Redux</span>

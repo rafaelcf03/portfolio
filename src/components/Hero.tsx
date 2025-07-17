@@ -3,8 +3,11 @@ import { motion } from "framer-motion";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { staggerContainer, fadeInUp } from "../utils/configs";
+import { useTranslation } from "react-i18next";
 
 export default function Hero() {
+  const { t } = useTranslation("portfolioApp");
+
   return (
     <motion.section
       id="home"
@@ -21,7 +24,7 @@ export default function Hero() {
           animate="animate"
         >
           <motion.div className="hero-badge">
-            <span>🐺 Hello, I'm</span>
+            <span>🐺 {t("GREETING")}</span>
           </motion.div>
           <motion.h1
             className="glitch"
@@ -31,16 +34,10 @@ export default function Hero() {
             Rafael de Castro
           </motion.h1>
           <motion.h2 className="hero-subtitle" variants={fadeInUp}>
-            FullStack Developer
+            {t("FULLSTACK")}
           </motion.h2>
           <motion.p className="hero-description" variants={fadeInUp}>
-            Developer with 4+ years of experience in front-end and back-end
-            development, working with Python, TypeScript, Django, Angular, and
-            React. My primary interest lies in back-end development. I have
-            experience in the education sector and currently work in the IoT
-            industry. I am always striving to stay up to date and enhance my
-            technical skills, particularly in Python. Self-taught and driven by
-            challenges, I enjoy stepping out of my comfort zone.
+            {t("BIO")}
           </motion.p>
 
           <motion.div className="cta-buttons" variants={staggerContainer}>
@@ -50,7 +47,7 @@ export default function Hero() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              View My Work
+              {t("VIEW_MY_WORK")}
             </motion.a>
             <motion.a
               href="#contact"
@@ -58,7 +55,7 @@ export default function Hero() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Contact Me
+              {t("CONTACT_ME")}
             </motion.a>
           </motion.div>
 
@@ -95,27 +92,28 @@ export default function Hero() {
                 marginBottom: 50,
               }}
             >
-              {`const aboutMe: DeveloperProfile = {
-    codename: "Rafael de Castro",
-    origin: "🌍 Somewhere between a coffee shop and a terminal",
-    role: "Fullstack Web Warlock",
-    stack: {
-      languages: ["Python", "Javascript", "Typescript", "SQL"]
-      frameworks and tools: [
+              {`const ${t("ABOUT_ME")}: DeveloperProfile = {
+    ${t("CODENAME")}: "Rafael de Castro",
+    ${t("ORIGIN")}: "🌍 ${t("ORIGIN_TEXT")}",
+    ${t("ROLE")}: "Fullstack Web Warlock",
+    ${t("STACK")}: {
+      ${t("LANGUAGES")}: ["Python", "Javascript", "Typescript", "SQL"]
+      ${t("FRAMEWORKS_TOOLS")}: [
         "React", "Django", "TailwindCSS", 
         "FastAPI", "Flask", "Angular", 
         "Git", "MySQL", "NoSQL"
       ],
     },
-    traits: [
+    ${t("FACTS")}: [
       "self-taught",
       "tech enthusiast",
       "dark mode advocate",
-      "",
+      "martial arts enthusiast",
+      "dog/wolf person"
     ],
-    missionStatement:
-      "Turning ideas into interfaces and bugs into feature",
-    availability: "Needs discussion",
+    ${t("MISSION")}:
+      "${t("MISSION_TEXT")}",
+    ${t("AVAILABILITY")}: "${t("AVAILABILITY_TEXT")}",
 };`}
             </SyntaxHighlighter>
           </div>
@@ -127,9 +125,7 @@ export default function Hero() {
           >
             <div className="card-content">
               <span className="card-icon">💻</span>
-              <span className="card-text">
-                Currently working at Eonix Technology
-              </span>
+              <span className="card-text">{t("CURRENT_JOB")}</span>
             </div>
           </motion.div>
         </motion.div>
